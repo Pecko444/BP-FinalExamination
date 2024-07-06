@@ -6,13 +6,13 @@ const inventory = {
 };
 
 // เริ่มเขียนโค้ดตรงนี้
-/**
+/** Create Inventory management system
  * 1. Create fuction that update value in object
  * 2. Create function that add new item to object
  * 3. Using loop to find total value (price x qty)
- * 4. log total value from (3)
+ * 4. Log total value from (3)
  */
-
+// (1) create update function 
 function updateInventory(item, property, value) {
   if (inventory?.[item]?.hasOwnProperty(property)) {
     inventory[item][property] = value;
@@ -21,7 +21,7 @@ function updateInventory(item, property, value) {
     console.log(`no item name "${item}" in inventory.`);
   }
 }
-
+// (2) create add function
 function addInventory(item, price, quantity) {
   if (!inventory?.[item]) {
     inventory[item] = {price, quantity};
@@ -31,7 +31,7 @@ function addInventory(item, price, quantity) {
   }
 }
 
-//Finding total stocks value using loop
+// (3) Finding total stocks value using loop
 function sumStock() {
   let totalStock = 0;
 
@@ -39,11 +39,11 @@ function sumStock() {
     totalStock += inventory[item]["price"] * inventory[item]["quantity"];
   }
 
-  let message = `Total inventory value: ${totalStock} baht`;
+  const message = `Total inventory value: ${totalStock} baht`;
   return message;
 }
 
-//execute
+// execute //
 updateInventory("apple", "quantity", 200);
 addInventory("orange", 20, 300);
 console.log(inventory);
